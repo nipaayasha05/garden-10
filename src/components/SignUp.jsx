@@ -6,20 +6,19 @@ import { auth } from "../firebase/firebase.init";
 import toast from "react-hot-toast";
 
 const SignUp = () => {
-  const { createUser, googleSignIn, provider } = use(AuthContext);
+  const { createUser, googleSignIn, provider, updateUser, setUser } =
+    use(AuthContext);
   //   console.log(createUser);
 
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
-    const formData = new FormData(form);
-    const { email, password, ...restFormData } = Object.fromEntries(
-      formData.entries()
-    );
-    const userProfile = {
-      ...restFormData,
-    };
-    console.log(email, password, userProfile);
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+
+    console.log(email, password, name, photo);
 
     if (password.length < 8) {
       toast.error("Password must be greater than 8");
@@ -56,6 +55,9 @@ const SignUp = () => {
     googleSignIn(auth, provider)
       .then((result) => {
         const currentUser = result.user;
+        updateUser({ displayName: name, photoURL: photo });
+
+        setUser({ ...currentUser, displayName: name, photoURL: photo });
         toast.success("User LogIn Successfully");
       })
       .catch((error) => {});
@@ -66,13 +68,20 @@ const SignUp = () => {
         <h1 className="text-5xl font-bold">Register now!</h1>
         <form onSubmit={handleSignUp} className="fieldset">
           <label className="label">Name</label>
-          <input type="text" name="name" className="input" placeholder="Name" />
+          <input
+            type="text"
+            name="name"
+            className="input"
+            placeholder="Name"
+            required
+          />
           <label className="label">Email</label>
           <input
             type="email"
             name="email"
             className="input"
             placeholder="Email"
+            required
           />
           <label className="label">Password</label>
           <input
@@ -80,6 +89,7 @@ const SignUp = () => {
             name="password"
             className="input"
             placeholder="Password"
+            required
           />
           <label className="label">Photo URL</label>
           <input
@@ -87,6 +97,7 @@ const SignUp = () => {
             name="photo"
             className="input"
             placeholder="Photo URL"
+            required
           />
           <div>
             <a className="link link-hover">Forgot password?</a>

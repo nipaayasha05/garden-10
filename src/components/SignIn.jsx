@@ -17,8 +17,8 @@ const SignIn = () => {
 
     // signInUser
     signInUser(email, password)
-      .then((res) => {
-        console.log(res.user);
+      .then((userCredential) => {
+        // console.log(userCredential.user);
         toast.success("User LogIn Successfully");
       })
       .catch((error) => {
