@@ -43,7 +43,15 @@ const SignUp = () => {
     // create user in firebase
     createUser(email, password)
       .then((res) => {
+        const user = res.user;
         console.log(res.user);
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+          })
+          .catch((error) => {
+            setUser(user);
+          });
         toast.success("User register successfully");
       })
       .catch((error) => {

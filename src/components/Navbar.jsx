@@ -39,17 +39,65 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Explore Gardener</a>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white bg-green-800 font-semibold rounded-full"
+                      : ""
+                  }
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/exploreGarden"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white bg-green-800 font-semibold rounded-full"
+                      : ""
+                  }
+                >
+                  Explore Gardener
+                </NavLink>
               </li>
 
               <li>
-                <a>Browse Tips</a>
+                <NavLink
+                  to="/browseTips"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white bg-green-800 font-semibold rounded-full"
+                      : ""
+                  }
+                >
+                  Browse Tips
+                </NavLink>
               </li>
               <li>
-                <a>Share a Garden Tip</a>
+                <NavLink
+                  to="/shareAGardenTip"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white bg-green-800 font-semibold rounded-full"
+                      : ""
+                  }
+                >
+                  Share a Garden Tip
+                </NavLink>
               </li>
               <li>
-                <a>My Tips</a>
+                <NavLink
+                  to="/myTips"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-white bg-green-800 font-semibold rounded-full"
+                      : ""
+                  }
+                >
+                  My Tips
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -60,6 +108,18 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 font-semibold text-green-950">
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-white bg-green-800 font-semibold rounded-full"
+                    : ""
+                }
+              >
+                Home
+              </NavLink>
+            </li>
             <li>
               <NavLink
                 to="/exploreGarden"
@@ -114,24 +174,37 @@ const Navbar = () => {
         <div className="navbar-end">
           <div className="relative group">
             {user && (
-              <img
-                className={`w-13 rounded-full hover:${user.email} `}
-                referrerPolicy="no-referrer"
-                src={user.photoURL}
-                alt=""
-              />
+              <div className="dropdown dropdown-end">
+                <div tabIndex={0} role="button" className=" m-1">
+                  <img
+                    className={`w-13 rounded-full  `}
+                    referrerPolicy="no-referrer"
+                    src={user.photoURL}
+                    alt=""
+                  />
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu bg-base-100 rounded-box z-1 w-25 p-2 shadow-sm"
+                >
+                  <li>
+                    <button
+                      onClick={handleLogOut}
+                      className="btn rounded-full bg-green-800 text-white border-none"
+                    >
+                      LogOut
+                    </button>
+                  </li>
+                </ul>
+              </div>
             )}
-            <p className="absolute -mt-2 -ml-15 invisible md:group-hover:visible">
-              {user?.email}
+
+            <p className="absolute -mt-3 -mr-10 invisible md:group-hover:visible">
+              {user?.displayName}
             </p>
           </div>
           {user ? (
-            <button
-              onClick={handleLogOut}
-              className="btn rounded-full bg-green-800 text-white border-none"
-            >
-              LogOut
-            </button>
+            ""
           ) : (
             <button
               onClick={() => navigate("/signin")}
