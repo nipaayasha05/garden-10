@@ -8,6 +8,7 @@ import ExploreGardener from "../Pages/ExploreGardener";
 import BrowseTips from "../Pages/BrowseTips";
 import ShareAGardenTip from "../Pages/ShareAGardenTip";
 import MyTips from "../Pages/MyTips";
+import Loader from "../Pages/Loader";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/exploreGarden",
+        loader: () => fetch("http://localhost:3000/gardeners"),
+        hydrateFallbackElement: <Loader />,
         Component: ExploreGardener,
       },
       {
