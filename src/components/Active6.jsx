@@ -1,7 +1,6 @@
 import React from "react";
 
-const Gardeners = ({ garden }) => {
-  console.log(garden);
+const Active6 = ({ act }) => {
   const {
     name,
     age,
@@ -11,7 +10,8 @@ const Gardeners = ({ garden }) => {
     specialty,
     status,
     totalSharedTips,
-  } = garden;
+  } = act;
+  console.log(act);
   return (
     <div className="card bg-lime-50 border border-lime-300 shadow-green-900 shadow-md">
       <figure className="px-10 pt-10">
@@ -74,4 +74,4 @@ const Gardeners = ({ garden }) => {
   );
 };
 
-export default Gardeners;
+export default Active6;
