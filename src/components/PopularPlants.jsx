@@ -3,7 +3,7 @@ import React from "react";
 const PopularPlants = () => {
   return (
     <div className="container mx-auto">
-      <h3 className="text-3xl text-green-900 text-center font-bold">
+      <h3 className="text-3xl text-green-900 text-center font-bold pt-10">
         Green Stars of the Month
       </h3>
       <div className="m-5 grid  md:grid-cols-2 lg:grid-cols-3 gap-7 py-10">
@@ -28,13 +28,13 @@ const PopularPlants = () => {
         <div className="card bg-base-100  shadow-lime-900 shadow-md   ">
           <figure>
             <img
-              className="w-[350px] h-[400px]"
+              className="w-[350px] h-[400px] "
               src={`https://www.ikea.com/bh/en/images/products/aloe-vera-potted-plant-aloe__0653978_pe708207_s5.jpg`}
               alt=""
             />
           </figure>
           <div className="card-body">
-            <h2 className="card-title">Snake Plant (Sansevieria) </h2>
+            <h2 className="card-title">Alo Vera </h2>
             <p className="text-xl">price:6.99$</p>
             <div className="card-actions justify-end">
               <button className="btn rounded-full bg-green-800 text-white border-none">
