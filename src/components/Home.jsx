@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData } from "react-router";
 import Active6 from "./Active6";
 import Slider from "./Slider";
+import PopularPlants from "./PopularPlants";
 
 const Home = () => {
   const active = useLoaderData();
@@ -19,6 +20,9 @@ const Home = () => {
           <Active6 act={act} key={active._id}></Active6>
         ))}
       </div>{" "}
+      <div>
+        <PopularPlants></PopularPlants>
+      </div>
     </div>
   );
 };

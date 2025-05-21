@@ -18,6 +18,7 @@ const router = createBrowserRouter([
       {
         index: true,
         loader: () => fetch("http://localhost:3000/gardener6"),
+
         hydrateFallbackElement: <Loader />,
         Component: Home,
       },
