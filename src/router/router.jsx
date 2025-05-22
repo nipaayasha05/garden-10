@@ -38,6 +38,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/browseTips",
+        loader: () => fetch("http://localhost:3000/usersTips"),
+        hydrateFallbackElement: <Loader />,
         Component: BrowseTips,
       },
       {
