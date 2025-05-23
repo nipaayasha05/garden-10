@@ -9,22 +9,22 @@ import garden from "../assets/flower.jpg";
 import house from "../assets/fress-vegatables.jpg";
 import life from "../assets/nature.jpg";
 
+import { Typewriter, useTypewriter } from "react-simple-typewriter";
+
 const Slider = () => {
+  // const [text, helper] = useTypewriter({});
+
+  /** Hook Output */
+  // const { isType, isDelete, isDelay, isDone } = helper;
   return (
-    <div>
+    <div className="">
       <Swiper
         spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
         pagination={{
           clickable: true,
         }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper "
+        modules={[Pagination]}
+        className="mySwiper"
       >
         <SwiperSlide>
           <div
@@ -34,12 +34,18 @@ const Slider = () => {
             }}
           >
             <div className="pt-40  pl-10 py-15 space-y-5">
-              <h1 className="text-2xl font-semibold text-white  ">
-                Join our annual Garden <br /> Festival and explore nature,
-                creativity,
-                <br />
-                and community. Learn, share, and <br />
-                celebrate the love for green living!
+              <h1 className="text-2xl lg:w-6/12 font-semibold text-white App ">
+                <Typewriter
+                  cursor
+                  cursorBlinking
+                  delaySpeed={1000}
+                  deleteSpeed={25}
+                  loop={0}
+                  typeSpeed={75}
+                  words={[
+                    "Join our annual Garden Festival and explore nature, creativity,and community. Learn, share, and  celebrate the love for green living!",
+                  ]}
+                />
               </h1>
 
               <button className="btn bg-white rounded-full font-medium ">
@@ -56,11 +62,18 @@ const Slider = () => {
             }}
           >
             <div className="  pt-40 pl-10 py-15 space-y-5">
-              <h1 className="text-2xl font-semibold text-white  ">
-                In a world losing green,
-                <br /> we’re planting hope — one garden <br /> at a time. Join
-                us in nurturing nature,
-                <br /> growing fresh food, and protecting our planet’s future.
+              <h1 className="text-2xl lg:w-6/12 font-semibold text-white  ">
+                <Typewriter
+                  cursor
+                  cursorBlinking
+                  delaySpeed={1000}
+                  deleteSpeed={25}
+                  loop={0}
+                  typeSpeed={75}
+                  words={[
+                    "In a world losing green, we’re planting hope — one garden at a time. Join  us in nurturing nature, growing fresh food, and protecting our planet’s future.",
+                  ]}
+                />
               </h1>
 
               <button className="btn bg-white rounded-full font-medium ">
@@ -77,11 +90,18 @@ const Slider = () => {
             }}
           >
             <div className="  pt-40 pl-10 py-15 space-y-5 ">
-              <h1 className="text-2xl font-semibold text-white  ">
-                Walk into a world of greens,
-                <br /> where fresh vegetables bloom and <br />
-                serenity grows. Rediscover the joy of <br /> slow living and
-                homegrown goodness.
+              <h1 className="text-2xl lg:w-6/12 font-semibold text-white  ">
+                <Typewriter
+                  cursor
+                  cursorBlinking
+                  delaySpeed={1000}
+                  deleteSpeed={25}
+                  loop={0}
+                  typeSpeed={75}
+                  words={[
+                    "Walk into a world of greens,where fresh vegetables bloom and serenity grows. Rediscover the joy of slow living and homegrown goodness.",
+                  ]}
+                />
               </h1>
 
               <button className="btn bg-white rounded-full font-medium ">
