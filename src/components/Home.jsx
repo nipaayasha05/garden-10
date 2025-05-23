@@ -17,7 +17,7 @@ const Home = () => {
       </h3>
       <div className=" container mx-auto  m-5 grid  md:grid-cols-2 lg:grid-cols-3 gap-7 py-10">
         {active.map((act) => (
-          <Active6 act={act} key={active._id}></Active6>
+          <Active6 act={act} key={act._id}></Active6>
         ))}
       </div>{" "}
       <div className="bg-amber-50">

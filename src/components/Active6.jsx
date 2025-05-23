@@ -11,7 +11,7 @@ const Active6 = ({ act }) => {
     status,
     totalSharedTips,
   } = act;
-  console.log(act);
+  // console.log(act);
   return (
     <div className="card bg-lime-50 border border-lime-300 shadow-green-900 shadow-md">
       <figure className="px-10 pt-10">
