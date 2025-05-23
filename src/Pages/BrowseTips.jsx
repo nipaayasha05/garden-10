@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { NavLink, useLoaderData, useNavigate } from "react-router";
 import { FaEye } from "react-icons/fa";
+import { AuthContext } from "../context/AuthContext";
 // import Easy from "./Easy";
 // import Medium from "./Medium";
 // import Hard from "./Hard";
@@ -8,9 +9,10 @@ import { FaEye } from "react-icons/fa";
 
 const BrowseTips = () => {
   const categories = useLoaderData();
+  const { difficulty, setDifficulty } = use(AuthContext);
   const navigate = useNavigate();
   console.log(categories);
-  const [difficulty, setDifficulty] = useState([]);
+  // const [difficulty, setDifficulty] = useState([]);
   const [category, setCategory] = useState([]);
 
   console.log(difficulty);

@@ -1,27 +1,19 @@
 import { getAuth } from "firebase/auth";
 import React, { use, useEffect, useState } from "react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { MdEdit } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const MyTips = () => {
-  const { user } = use(AuthContext);
+  const { user, difficulty, setDifficulty } = use(AuthContext);
   const [tips, setTips] = useState([]);
-  // const data = useLoaderData();
-  // console.log(data);
-  // const [email, setEmail] = useState([]);
+  // const [difficulty, setDifficulty] = useState([]);
 
-  // const auth = getAuth();
-  // const user = auth.currentUser;
-
-  // if (user) {
-  // const email = user.email;
-  //   // const name = user.displayName;
-  //   setEmail(user.email);
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/usersTips/${user.email}`)
+      fetch(`http://localhost:3000/usersTips/email/${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           setTips(data);
@@ -29,10 +21,38 @@ const MyTips = () => {
     }
   }, [user]);
 
-  // } else {
-  //   // No user is signed in.
-  // }
+  const handleDelete = (_id) => {
+    console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      console.log(result.isConfirmed);
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/usersTips/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
 
+              const remainingTip = tips.filter((diff) => diff._id !== _id);
+              setTips(remainingTip);
+            }
+          });
+      }
+    });
+  };
   return (
     <div className="container mx-auto">
       <h3 className="text-3xl font-bold text-green-900 text-center py-10">
@@ -92,11 +112,17 @@ const MyTips = () => {
                   <td className="sm:text-xl ">{diff.name}</td>
 
                   <th className=" ">
-                    <button className="btn btn-ghost m-2 ">
-                      <MdEdit size={20} />
-                    </button>
-                    <button className="btn m-2">
-                      <MdDeleteForever size={20} />
+                    <Link to={`/updateTips/${diff._id}`}>
+                      <button className="btn bg-green-800 btn-ghost rounded-full m-2 ">
+                        <MdEdit color="white" size={20} />
+                      </button>
+                    </Link>
+
+                    <button
+                      onClick={() => handleDelete(diff._id)}
+                      className="btn bg-green-800 rounded-full m-2"
+                    >
+                      <MdDeleteForever color="white" size={20} />
                     </button>
                   </th>
                 </>

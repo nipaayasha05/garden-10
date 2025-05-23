@@ -1,47 +1,46 @@
 import React, { use } from "react";
-import { getAuth } from "firebase/auth";
 import { AuthContext } from "../context/AuthContext";
+import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
 
-const ShareAGardenTip = () => {
+const UpdateTips = () => {
+  const {
+    _id,
+    title,
+    description,
+    topic,
+    plant_type,
+    difficulty,
+    photo,
+    category,
+    availability,
+  } = useLoaderData();
+  //   console.log(userTips);
   const { user } = use(AuthContext);
-  const handleSubmit = (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    const shareTip = Object.fromEntries(formData.entries());
-    console.log(shareTip);
-    // const name = e.target.name.value;
-    // const email = e.target.email.value;
-    const auth = getAuth();
-    const user = auth.currentUser;
+    const update = Object.fromEntries(formData.entries());
+    console.log(update);
 
-    if (user) {
-      const email = user.email;
-      const name = user.displayName;
-      // console.log(email);
-      // console.log(name);
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/auth.user
-      // ...
-    } else {
-      // No user is signed in.
-    }
-
-    fetch("http://localhost:3000/usersTips", {
-      method: "POST",
+    fetch(`http://localhost:3000/usersTips/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(shareTip),
+      body: JSON.stringify(update),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.insertedId) {
+        console.log(data);
+        if (data.modifiedCount) {
           Swal.fire({
-            title: "Your work has been saved",
+            position: "top-end",
             icon: "success",
-            draggable: true,
+            title: "Blog updated successfully.",
+            showConfirmButton: false,
+            timer: 1500,
           });
         }
       });
@@ -50,7 +49,7 @@ const ShareAGardenTip = () => {
   return (
     <div className="container lg:w-8/12  mx-auto py-10">
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleUpdate}
         className="fieldset shadow-sm rounded-box shadow-gray-700 p-3 "
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -81,6 +80,7 @@ const ShareAGardenTip = () => {
             <input
               type="text"
               name="title"
+              defaultValue={title}
               className="input w-full"
               placeholder="Title"
             />
@@ -90,6 +90,7 @@ const ShareAGardenTip = () => {
             <input
               type="text"
               name="plant_type"
+              defaultValue={plant_type}
               className="input w-full"
               placeholder="Plant Type/Topic"
             />
@@ -100,6 +101,7 @@ const ShareAGardenTip = () => {
             <input
               type="text"
               name="description"
+              defaultValue={description}
               className="input w-full"
               placeholder="Description"
             />
@@ -109,6 +111,7 @@ const ShareAGardenTip = () => {
             <input
               type="text"
               name="photo"
+              defaultValue={photo}
               className="input w-full"
               placeholder="Photo URL"
             />
@@ -122,8 +125,9 @@ const ShareAGardenTip = () => {
                 <input
                   type="radio"
                   name="difficulty"
+                  defaultValue={difficulty}
                   className="radio radio-neutral"
-                  value="easy"
+                  //   value="easy"
                   defaultChecked
                 />
                 <p>Easy</p>
@@ -133,8 +137,9 @@ const ShareAGardenTip = () => {
                 <input
                   type="radio"
                   name="difficulty"
+                  defaultValue={difficulty}
                   className="radio radio-neutral"
-                  value="medium"
+                  //   value="medium"
                   defaultChecked
                 />
                 <p>Medium</p>
@@ -143,8 +148,9 @@ const ShareAGardenTip = () => {
                 <input
                   type="radio"
                   name="difficulty"
+                  defaultValue={difficulty}
                   className="radio radio-neutral"
-                  value="hard"
+                  //   value="hard"
                   defaultChecked
                 />
                 <p>Hard</p>
@@ -158,8 +164,9 @@ const ShareAGardenTip = () => {
                 <input
                   type="radio"
                   name="category"
+                  defaultValue={category}
                   className="radio radio-neutral"
-                  value="composting"
+                  //   value="composting"
                   defaultChecked
                 />
                 <p>Composting</p>
@@ -169,8 +176,9 @@ const ShareAGardenTip = () => {
                 <input
                   type="radio"
                   name="category"
+                  defaultValue={category}
                   className="radio radio-neutral"
-                  value="plant-care"
+                  //   value="plant-care"
                   defaultChecked
                 />
                 <p>Plant Care</p>
@@ -179,8 +187,9 @@ const ShareAGardenTip = () => {
                 <input
                   type="radio"
                   name="category"
+                  defaultValue={category}
                   className="radio radio-neutral"
-                  value="vertical-gardening"
+                  //   value="vertical-gardening"
                   defaultChecked
                 />
                 <p>Vertical Gardening</p>
@@ -194,8 +203,9 @@ const ShareAGardenTip = () => {
                 <input
                   type="radio"
                   name="availability"
+                  defaultValue={availability}
                   className="radio radio-neutral"
-                  value="public"
+                  //   value="public"
                   defaultChecked
                 />
                 <p>Public</p>
@@ -205,8 +215,9 @@ const ShareAGardenTip = () => {
                 <input
                   type="radio"
                   name="availability"
+                  defaultValue={availability}
                   className="radio radio-neutral"
-                  value="hidden"
+                  //   value="hidden"
                   defaultChecked
                 />
                 <p>Hidden</p>
@@ -218,11 +229,11 @@ const ShareAGardenTip = () => {
         <input
           type="submit"
           className="btn w-full text-white bg-green-800"
-          value="Submit"
+          value="Update"
         />
       </form>
     </div>
   );
 };
 
-export default ShareAGardenTip;
+export default UpdateTips;

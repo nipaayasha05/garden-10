@@ -10,6 +10,7 @@ import ShareAGardenTip from "../Pages/ShareAGardenTip";
 import MyTips from "../Pages/MyTips";
 import Loader from "../Pages/Loader";
 import TipsDetails from "../Pages/TipsDetails";
+import UpdateTips from "../Pages/UpdateTips";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,12 @@ const router = createBrowserRouter([
         path: "/browseTips/:id",
         loader: () => fetch(`http://localhost:3000/usersTips`),
         Component: TipsDetails,
+      },
+      {
+        path: "/updateTips/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/usersTips/${params.id}`),
+        Component: UpdateTips,
       },
     ],
   },

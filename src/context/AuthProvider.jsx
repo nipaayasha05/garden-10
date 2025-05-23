@@ -17,6 +17,7 @@ import toast from "react-hot-toast";
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   // console.log(user);
+  const [difficulty, setDifficulty] = useState([]);
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -52,6 +53,8 @@ const AuthProvider = ({ children }) => {
     setUser,
     handleLogOut,
     updateUser,
+    difficulty,
+    setDifficulty,
   };
 
   useEffect(() => {
