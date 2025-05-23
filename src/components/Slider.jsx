@@ -9,15 +9,11 @@ import garden from "../assets/flower.jpg";
 import house from "../assets/fress-vegatables.jpg";
 import life from "../assets/nature.jpg";
 
-import { Typewriter, useTypewriter } from "react-simple-typewriter";
+import { Typewriter } from "react-simple-typewriter";
 
 const Slider = () => {
-  // const [text, helper] = useTypewriter({});
-
-  /** Hook Output */
-  // const { isType, isDelete, isDelay, isDone } = helper;
   return (
-    <div className="">
+    <div className=" ">
       <Swiper
         spaceBetween={30}
         pagination={{
@@ -34,7 +30,7 @@ const Slider = () => {
             }}
           >
             <div className="pt-40  pl-10 py-15 space-y-5">
-              <h1 className="text-2xl lg:w-6/12 font-semibold text-white App ">
+              <h1 className="text-2xl lg:w-4/12 font-semibold text-white App ">
                 <Typewriter
                   cursor
                   cursorBlinking
@@ -62,7 +58,7 @@ const Slider = () => {
             }}
           >
             <div className="  pt-40 pl-10 py-15 space-y-5">
-              <h1 className="text-2xl lg:w-6/12 font-semibold text-white  ">
+              <h1 className="text-2xl lg:w-4/12 font-semibold text-white  ">
                 <Typewriter
                   cursor
                   cursorBlinking
@@ -90,7 +86,7 @@ const Slider = () => {
             }}
           >
             <div className="  pt-40 pl-10 py-15 space-y-5 ">
-              <h1 className="text-2xl lg:w-6/12 font-semibold text-white  ">
+              <h1 className="text-2xl lg:w-4/12 font-semibold text-white  ">
                 <Typewriter
                   cursor
                   cursorBlinking
