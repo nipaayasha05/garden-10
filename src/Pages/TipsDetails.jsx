@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import { AiTwotoneLike } from "react-icons/ai";
 import { AuthContext } from "../context/AuthContext";
@@ -24,10 +24,32 @@ const TipsDetails = () => {
   console.log(tipDetails);
   console.log(id);
 
+  useEffect(() => {
+    fetch(`https://assignment-10-server-pink-beta.vercel.app/usersTips/${id}`)
+      .then((res) => res.json())
+      .then((data) => setCount(data.likes || 0));
+  }, [id]);
+
   console.log(tips);
   const handleClick = () => {
+    const update = count + 1;
     setCount(count + 1);
     console.log("count");
+
+    fetch(`https://assignment-10-server-pink-beta.vercel.app/usersTips/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ likes: update }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data?.modifiedCount) {
+          setCount(count + 1);
+        }
+      });
   };
   return (
     <div className="container mx-auto py-10">
@@ -45,18 +67,22 @@ const TipsDetails = () => {
               <span className=" font-semibold text-green-800">Author :</span>
               <span className="text-gray-600">{name}</span>
             </p>
-            {user?.email !== email ? (
-              <div className="flex gap-2">
-                <button onClick={handleClick} className=" ">
-                  <AiTwotoneLike size={25} />
-                </button>
-                <p>{count}</p>
-              </div>
-            ) : (
-              <button disabled={true} onClick={handleClick} className=" ">
+            {/* {user?.email !== email ? ( */}
+            <div className="flex gap-2">
+              <button
+                defaultValue={count + 1}
+                onClick={handleClick}
+                className=" "
+              >
                 <AiTwotoneLike size={25} />
               </button>
-            )}
+              <p>{count + 0}</p>
+            </div>
+            {/* ) : ( */}
+            {/* <button disabled={true} onClick={handleClick} className=" ">
+                <AiTwotoneLike size={25} />
+              </button>
+            )} */}
           </div>
           <h3 className="text-green-800 font-bold text-2xl ">{title}</h3>
           <p className="text-xl text-gray-600">{description}</p>

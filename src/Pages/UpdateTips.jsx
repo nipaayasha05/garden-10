@@ -24,13 +24,16 @@ const UpdateTips = () => {
     const update = Object.fromEntries(formData.entries());
     console.log(update);
 
-    fetch(`http://localhost:3000/usersTips/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(update),
-    })
+    fetch(
+      `https://assignment-10-server-pink-beta.vercel.app/usersTips/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(update),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

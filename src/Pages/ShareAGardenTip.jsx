@@ -28,7 +28,7 @@ const ShareAGardenTip = () => {
       // No user is signed in.
     }
 
-    fetch("http://localhost:3000/usersTips", {
+    fetch("https://assignment-10-server-pink-beta.vercel.app/usersTips", {
       method: "POST",
       headers: {
         "content-type": "application/json",

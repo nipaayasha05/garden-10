@@ -19,7 +19,8 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch("http://localhost:3000/gardener6"),
+        loader: () =>
+          fetch("https://assignment-10-server-pink-beta.vercel.app/gardener6"),
 
         hydrateFallbackElement: <Loader />,
         Component: Home,
@@ -34,13 +35,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/exploreGarden",
-        loader: () => fetch("http://localhost:3000/gardeners"),
+        loader: () =>
+          fetch("https://assignment-10-server-pink-beta.vercel.app/gardeners"),
         hydrateFallbackElement: <Loader />,
         Component: ExploreGardener,
       },
       {
         path: "/browseTips",
-        loader: () => fetch("http://localhost:3000/usersTips"),
+        loader: () =>
+          fetch("https://assignment-10-server-pink-beta.vercel.app/usersTips"),
         hydrateFallbackElement: <Loader />,
         Component: BrowseTips,
       },
@@ -50,18 +53,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/myTips",
-        // loader: () => fetch(`http://localhost:3000/usersTips/${email}`),
+
         Component: MyTips,
       },
       {
         path: "/browseTips/:id",
-        loader: () => fetch(`http://localhost:3000/usersTips`),
+        loader: () =>
+          fetch(`https://assignment-10-server-pink-beta.vercel.app/usersTips`),
         Component: TipsDetails,
       },
       {
         path: "/updateTips/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/usersTips/${params.id}`),
+          fetch(
+            `https://assignment-10-server-pink-beta.vercel.app/usersTips/${params.id}`
+          ),
         Component: UpdateTips,
       },
     ],

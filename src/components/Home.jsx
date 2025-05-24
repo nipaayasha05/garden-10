@@ -1,13 +1,18 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useLoaderData } from "react-router";
 import Active6 from "./Active6";
 import Slider from "./Slider";
 import PopularPlants from "./PopularPlants";
 import { Bounce, Flip, Roll, Slide, Zoom } from "react-awesome-reveal";
+import TopTips from "./TopTips";
 
 const Home = () => {
   const active = useLoaderData();
-  console.log(active);
+  // console.log(active);
+
+  const topTipsPromise = fetch(
+    "https://assignment-10-server-pink-beta.vercel.app/usersTips6"
+  ).then((res) => res.json());
 
   return (
     <div className=" ">
@@ -30,6 +35,15 @@ const Home = () => {
           <Active6 act={act} key={act._id}></Active6>
         ))}
       </div>{" "}
+      <div>
+        <Suspense
+          fallback={
+            <span className="loading loading-spinner loading-lg"></span>
+          }
+        >
+          <TopTips topTipsPromise={topTipsPromise}></TopTips>
+        </Suspense>
+      </div>
       <div className="bg-amber-50">
         <PopularPlants></PopularPlants>
       </div>

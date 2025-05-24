@@ -20,7 +20,7 @@ const PopularPlants = () => {
             <p className="text-xl">price:6.99$</p>
             <div className="card-actions justify-end">
               <button className="btn rounded-full bg-green-800 text-white border-none">
-                Buy Now
+                Order Now
               </button>
             </div>
           </div>
@@ -29,7 +29,7 @@ const PopularPlants = () => {
           <figure>
             <img
               className="w-[350px] h-[400px] "
-              src={`https://www.ikea.com/bh/en/images/products/aloe-vera-potted-plant-aloe__0653978_pe708207_s5.jpg`}
+              src={`https://bloomboxclub.ie/cdn/shop/products/Aloe-Vera-17cm-Medium.jpg?v=1653658507`}
               alt=""
             />
           </figure>
@@ -38,7 +38,7 @@ const PopularPlants = () => {
             <p className="text-xl">price:6.99$</p>
             <div className="card-actions justify-end">
               <button className="btn rounded-full bg-green-800 text-white border-none">
-                Buy Now
+                Order Now
               </button>
             </div>
           </div>
@@ -56,7 +56,7 @@ const PopularPlants = () => {
             <p className="text-xl">price:6.00$</p>
             <div className="card-actions justify-end">
               <button className="btn rounded-full bg-green-800 text-white border-none">
-                Buy Now
+                Order Now
               </button>
             </div>
           </div>
@@ -74,7 +74,7 @@ const PopularPlants = () => {
             <p className="text-xl">price:7.05$</p>
             <div className="card-actions justify-end">
               <button className="btn rounded-full bg-green-800 text-white border-none">
-                Buy Now
+                Order Now
               </button>
             </div>
           </div>
@@ -92,7 +92,7 @@ const PopularPlants = () => {
             <p className="text-xl">price:7.00$</p>
             <div className="card-actions justify-end">
               <button className="btn rounded-full bg-green-800 text-white border-none">
-                Buy Now
+                Order Now
               </button>
             </div>
           </div>
@@ -110,7 +110,7 @@ const PopularPlants = () => {
             <p className="text-xl">price:7.99$</p>
             <div className="card-actions justify-end">
               <button className="btn rounded-full bg-green-800 text-white border-none">
-                Buy Now
+                Order Now
               </button>
             </div>
           </div>

@@ -172,6 +172,11 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
+          <input
+            type="checkbox"
+            value="synthwave"
+            className="toggle theme-controller"
+          />
           <div className="relative group">
             {user && (
               <div className="dropdown dropdown-end">

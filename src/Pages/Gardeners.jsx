@@ -1,7 +1,7 @@
 import React from "react";
 
 const Gardeners = ({ garden }) => {
-  console.log(garden);
+  // console.log(garden);
   const {
     name,
     age,

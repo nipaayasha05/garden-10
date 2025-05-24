@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Snake Plant (Sansevieria)",
+    "price": 6.99,
+    "image": "https://potsforplants.ph/cdn/shop/products/areca-palm-palmera-849528.jpg?v=1697027415"
+  },
+  {
+    "id": 2,
+    "name": "Aloe Vera",
+    "price": 6.99,
+    "image": "https://www.ikea.com/bh/en/images/products/aloe-vera-potted-plant-aloe__0653978_pe708207_s5.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Peace Lily",
+    "price": 6.00,
+    "image": "https://www.houseplant.co.uk/cdn/shop/files/DSC00503.jpg?v=1724921257&width=1946"
+  },
+  {
+    "id": 4,
+    "name": "Rose Plant",
+    "price": 7.05,
+    "image": "https://cdn.blossominggifts.com/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/p/i/pink-rose-plant-dark-grey-pot_1.webp"
+  },
+  {
+    "id": 5,
+    "name": "Mint Plant (Pudina)",
+    "price": 7.00,
+    "image": "https://magnolia.com/images/res.cloudinary.com/social-upload-prod-media-cld/image/upload/shopify/1/0207/8508/files/M10320040485_2.jpg?v=1743175269"
+  },
+  {
+    "id": 6,
+    "name": "Jasmine Plant",
+    "price": 7.99,
+    "image": "https://media.bunches.co.uk/products/pstep2-1.jpg"
+  }
+]

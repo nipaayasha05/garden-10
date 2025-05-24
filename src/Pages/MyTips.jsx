@@ -1,19 +1,23 @@
 import { getAuth } from "firebase/auth";
 import React, { use, useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router";
+import { Link, useLoaderData, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { MdEdit } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
+import { FaEye } from "react-icons/fa";
 
 const MyTips = () => {
   const { user, difficulty, setDifficulty } = use(AuthContext);
   const [tips, setTips] = useState([]);
+  const navigate = useNavigate();
   // const [difficulty, setDifficulty] = useState([]);
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/usersTips/email/${user.email}`)
+      fetch(
+        `https://assignment-10-server-pink-beta.vercel.app/usersTips/email/${user.email}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setTips(data);
@@ -34,9 +38,12 @@ const MyTips = () => {
     }).then((result) => {
       console.log(result.isConfirmed);
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/usersTips/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://assignment-10-server-pink-beta.vercel.app/usersTips/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
@@ -93,7 +100,7 @@ const MyTips = () => {
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
-                        <div className="mask rounded-xl  h-12 w-12 sm:w-20 sm:h-20">
+                        <div className="mask rounded-xl   w-25 h-25">
                           <img
                             src={diff?.photo}
                             alt="Avatar Tailwind CSS Component"
@@ -111,10 +118,10 @@ const MyTips = () => {
                   <td className="sm:text-xl ">{diff.category}</td>
                   <td className="sm:text-xl ">{diff.name}</td>
 
-                  <th className=" ">
+                  <th className="flex flex-col sm:flex-row">
                     <Link to={`/updateTips/${diff._id}`}>
                       <button className="btn bg-green-800 btn-ghost rounded-full m-2 ">
-                        <MdEdit color="white" size={20} />
+                        <MdEdit color="white" size={18} />
                       </button>
                     </Link>
 
@@ -122,7 +129,13 @@ const MyTips = () => {
                       onClick={() => handleDelete(diff._id)}
                       className="btn bg-green-800 rounded-full m-2"
                     >
-                      <MdDeleteForever color="white" size={20} />
+                      <MdDeleteForever color="white" size={18} />
+                    </button>
+                    <button
+                      onClick={() => navigate(`/browseTips/${diff._id}`)}
+                      className="btn bg-green-800 rounded-full m-2"
+                    >
+                      <FaEye color="white" size={18} />
                     </button>
                   </th>
                 </>
