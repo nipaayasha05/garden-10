@@ -3,11 +3,11 @@ import React from "react";
 const LowMaintain = () => {
   return (
     <div className="container mx-auto">
-      <h3 className="text-3xl text-green-900 text-center font-bold pt-10">
+      <h3 className="text-3xl text-green-900 text-center font-bold drop-shadow-emerald-200 drop-shadow-sm pt-10">
         Low-Maintenance Heroes
       </h3>
       <div className="m-5 grid  md:grid-cols-2 lg:grid-cols-3 gap-7 py-10">
-        <div className="card bg-base-100  shadow-lime-900 shadow-md   ">
+        <div className="card bg-base-100  shadow-lime-500 shadow-md ">
           <figure>
             <img
               className="w-full h-[350px]"
@@ -15,7 +15,7 @@ const LowMaintain = () => {
               alt=""
             />
           </figure>
-          <div className="p-5 ">
+          <div className="p-5 bg-lime-50 ">
             <div className="flex items-center justify-between ">
               <h2 className="card-title text-green-800 text-xl font-bold">
                 Aparajita (Butterfly Pea){" "}
@@ -23,7 +23,7 @@ const LowMaintain = () => {
               <p className="text-end text-green-500 font-semibold   ">Flower</p>
             </div>
 
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-700">
               Aparajita is a fast-growing, flowering climber with vibrant blue
               blooms. Thrives in small tubs with a trellis and needs minimal
               watering. Its flowers are edible and ornamental, blooming almost
@@ -32,7 +32,7 @@ const LowMaintain = () => {
             </p>
           </div>
         </div>
-        <div className="card bg-base-100  shadow-lime-900 shadow-md   ">
+        <div className="card bg-base-100  shadow-lime-500 shadow-md   ">
           <figure>
             <img
               className="w-full h-[350px]"
@@ -40,7 +40,7 @@ const LowMaintain = () => {
               alt=""
             />
           </figure>
-          <div className="p-5">
+          <div className="p-5 bg-lime-50  ">
             <div className="flex items-center justify-between ">
               <h2 className="card-title text-green-800 text-xl font-bold">
                 Chili Pepper (green){" "}
@@ -50,7 +50,7 @@ const LowMaintain = () => {
                 Vegetable
               </p>
             </div>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-700">
               Chilli plants grow well in pots, need little watering, and love
               sun. They produce fresh chillies for months with minimal care.
               Perfect for balconies, they don’t need daily attention but give
@@ -60,7 +60,7 @@ const LowMaintain = () => {
           </div>
         </div>
 
-        <div className="card bg-base-100  shadow-lime-900 shadow-md   ">
+        <div className="card bg-base-100  shadow-lime-500 shadow-md   ">
           <figure>
             <img
               className="w-full h-[350px]"
@@ -68,14 +68,14 @@ const LowMaintain = () => {
               alt=""
             />
           </figure>
-          <div className="p-5">
+          <div className="p-5 bg-lime-50  ">
             <div className="flex items-center justify-between ">
               <h2 className="card-title text-green-800 text-xl font-bold">
                 Mint (Pudina){" "}
               </h2>
               <p className="text-end text-green-500 font-semibold   ">Herb</p>
             </div>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-700">
               Mint spreads fast in small pots, even in partial shade. Needs
               occasional watering and trimming. Once planted, it grows back
               quickly and offers fresh leaves for tea or chutney anytime. A

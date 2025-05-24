@@ -18,40 +18,46 @@ const Active6 = ({ act }) => {
         <img
           src={image}
           alt="Shoes"
-          className="rounded-xl w-[350px] h-[230px]"
+          className="rounded-xl w-[380px] h-[250px]"
         />
       </figure>
       <div className="card-body items-center text-center">
-        <h2 className="card-title font-bold">{name}</h2>
+        <h2 className="card-title font-bold text-green-800">{name}</h2>
         <div className="flex gap-5">
           <div className="text-start">
             <p>
-              <span className="font-bold text-xl ">Age :</span>
+              <span className="font-bold text-xl text-green-800">Age :</span>
               <span className="font-semibold text-xl text-gray-600">
                 {" "}
                 {age}
               </span>
             </p>
             <p>
-              <span className="font-bold text-xl ">Gender :</span>
+              <span className="font-bold text-xl text-green-800">Gender :</span>
               <span className="font-semibold text-xl text-gray-600">
                 {gender}
               </span>
             </p>
             <p>
-              <span className="font-bold text-xl ">Total Shared Tips :</span>
+              <span className="font-bold text-xl text-green-800">
+                Total Shared Tips :
+              </span>
               <span className="font-semibold text-xl text-gray-600">
                 {totalSharedTips}
               </span>
             </p>
             <p>
-              <span className="font-bold text-xl ">Specialty :</span>
+              <span className="font-bold text-xl text-green-800">
+                Specialty :
+              </span>
               <span className="font-semibold text-xl text-gray-600">
                 {specialty}
               </span>
             </p>
             <p>
-              <span className="font-bold text-xl ">Experience :</span>
+              <span className="font-bold text-xl  text-green-800">
+                Experience :
+              </span>
               <span className="font-semibold text-xl text-gray-600">
                 {experiences}
               </span>

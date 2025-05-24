@@ -17,7 +17,7 @@ const ExploreGardener = () => {
         // triggerTwice // Only animate once
         fraction={0.5} // Start animation when element is 50% visible
       >
-        <h3 className="text-3xl font-bold text-green-900 text-center pt-10">
+        <h3 className="text-3xl font-bold drop-shadow-emerald-200 drop-shadow-sm text-green-900 text-center pt-10">
           Meet the Garden Whisperers
         </h3>
       </Bounce>

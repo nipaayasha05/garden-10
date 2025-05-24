@@ -44,7 +44,7 @@ const Slider = () => {
                 />
               </h1>
 
-              <button className="btn bg-white rounded-full font-medium ">
+              <button className="btn bg-white rounded-full font-medium text-black">
                 Join Now
               </button>
             </div>
@@ -72,7 +72,7 @@ const Slider = () => {
                 />
               </h1>
 
-              <button className="btn bg-white rounded-full font-medium ">
+              <button className="btn bg-white rounded-full font-medium text-black">
                 Join the Green Movement
               </button>
             </div>
@@ -100,7 +100,7 @@ const Slider = () => {
                 />
               </h1>
 
-              <button className="btn bg-white rounded-full font-medium ">
+              <button className="btn bg-white rounded-full font-medium text-black">
                 Visit the Garden
               </button>
             </div>
