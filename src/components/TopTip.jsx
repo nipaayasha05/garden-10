@@ -3,7 +3,7 @@ import { AiFillLike, AiTwotoneLike } from "react-icons/ai";
 
 const TopTip = ({ top }) => {
   return (
-    <div className="card bg-base-100 m-3   border-lime-700 shadow-md shadow-lime-700">
+    <div className="card bg-base-100 m-5   border-lime-700 shadow-md shadow-lime-700">
       <figure>
         <img className="w-full h-[350px]" src={top.photo} />
       </figure>

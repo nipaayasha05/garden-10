@@ -64,10 +64,6 @@ const SignUp = () => {
   const handleGoogleSignIn = () => {
     googleSignIn(auth, provider)
       .then((result) => {
-        const currentUser = result.user;
-        updateUser({ displayName: name, photoURL: photo });
-
-        setUser({ ...currentUser, displayName: name, photoURL: photo });
         navigate(from ? from : "/");
         toast.success("User LogIn Successfully");
       })
@@ -79,7 +75,7 @@ const SignUp = () => {
   }, []);
 
   return (
-    <div className="card bg-base-100 m-5  border  mx-auto mt-10 max-w-sm shrink-0 shadow-2xl">
+    <div className="card bg-base-100 m-5 mb-15 border border-green-300 shadow-lime-600 mx-auto mt-10 max-w-sm shrink-0 shadow-md">
       <div className="card-body">
         <h1 className="text-5xl text-green-800 font-bold">Register now!</h1>
         <form onSubmit={handleSignUp} className="fieldset">
