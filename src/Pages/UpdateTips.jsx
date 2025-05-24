@@ -53,6 +53,9 @@ const UpdateTips = () => {
 
   return (
     <div className="container lg:w-8/12  mx-auto py-10">
+      <h3 className="text-3xl font-bold text-green-800 text-center py-5">
+        You can update Your Garden Experience
+      </h3>
       <form
         onSubmit={handleUpdate}
         className="fieldset shadow-sm rounded-box shadow-gray-700 p-3 "

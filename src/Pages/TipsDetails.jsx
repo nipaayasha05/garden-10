@@ -1,6 +1,6 @@
 import React, { use, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
-import { AiTwotoneLike } from "react-icons/ai";
+import { AiFillLike, AiTwotoneLike } from "react-icons/ai";
 import { AuthContext } from "../context/AuthContext";
 
 const TipsDetails = () => {
@@ -73,9 +73,9 @@ const TipsDetails = () => {
                 onClick={handleClick}
                 className=" "
               >
-                <AiTwotoneLike size={25} />
+                <AiFillLike color="green" size={25} />
               </button>
-              <p>{count + 0}</p>
+              <p className="text-gray-600">{count + 0}</p>
             </div>
             {/* ) : ( */}
             {/* <button disabled={true} onClick={handleClick} className=" ">

@@ -52,7 +52,10 @@ const ShareAGardenTip = () => {
   }, []);
 
   return (
-    <div className="container lg:w-8/12  mx-auto py-10">
+    <div className="container lg:w-8/12  mx-auto py-5">
+      <h3 className="text-3xl font-bold text-green-800 text-center py-10">
+        Share Your Garden Experience
+      </h3>
       <form
         onSubmit={handleSubmit}
         className="fieldset shadow-sm rounded-box shadow-gray-700 p-3 "
