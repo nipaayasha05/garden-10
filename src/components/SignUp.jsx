@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { FcGoogle } from "react-icons/fc";
 import { NavLink, useNavigate } from "react-router";
@@ -21,8 +21,6 @@ const SignUp = () => {
     const password = form.password.value;
     const photo = form.photo.value;
 
-    console.log(email, password, name, photo);
-
     if (password.length < 8) {
       toast.error("Password must be greater than 8");
       return;
@@ -39,7 +37,7 @@ const SignUp = () => {
     }
 
     if (!/[@#$]/.test(password)) {
-      toast.error("password must contain at least one number");
+      toast.error("password must contain at least one  special character");
       return;
     }
 
@@ -47,7 +45,7 @@ const SignUp = () => {
     createUser(email, password)
       .then((res) => {
         const user = res.user;
-        console.log(res.user);
+
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
@@ -75,6 +73,11 @@ const SignUp = () => {
       })
       .catch((error) => {});
   };
+
+  useEffect(() => {
+    document.title = "GreenSpire || Register";
+  }, []);
+
   return (
     <div className="card bg-base-100 m-5  border  mx-auto mt-10 max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
@@ -128,7 +131,7 @@ const SignUp = () => {
           </button>
           <p className="font-semibold text-center pt-5">
             Already Have An Account ?
-            <NavLink className="text-secondary" to="/signin">
+            <NavLink className="text-green-800" to="/signin">
               LogIn
             </NavLink>
           </p>

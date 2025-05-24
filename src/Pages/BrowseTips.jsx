@@ -1,27 +1,16 @@
-import React, { use, useEffect, useState } from "react";
+import React, { use, useEffect } from "react";
 import { NavLink, useLoaderData, useNavigate } from "react-router";
 import { FaEye } from "react-icons/fa";
 import { AuthContext } from "../context/AuthContext";
-// import Easy from "./Easy";
-// import Medium from "./Medium";
-// import Hard from "./Hard";
-// import diff from "daisyui/components/diff";
 
 const BrowseTips = () => {
   const categories = useLoaderData();
   const { difficulty, setDifficulty } = use(AuthContext);
   const navigate = useNavigate();
-  console.log(categories);
-  // const [difficulty, setDifficulty] = useState([]);
-  const [category, setCategory] = useState([]);
 
-  console.log(difficulty);
-  // useEffect(() => {
-  //   const easyLevel = categories.filter(
-  //     (category) => category.availability === "public"
-  //   );
-  //   setDifficulty(easyLevel);
-  // }, [categories]);
+  // const [difficulty, setDifficulty] = useState([]);
+  // const [category, setCategory] = useState([]);
+
   const handleAll = () => {
     const easyLevel = categories.filter(
       (category) => category.availability === "public"
@@ -46,6 +35,11 @@ const BrowseTips = () => {
     );
     setDifficulty(hardLevel);
   };
+
+  useEffect(() => {
+    document.title = "GreenSpire || Browse Tips";
+  }, []);
+
   return (
     <div className="container text-3xl mx-auto py-10">
       <h3 className="text-green-900 font-bold text-center py-10">
@@ -98,48 +92,7 @@ const BrowseTips = () => {
                 <th> Details</th>
               </tr>
             </thead>
-            {/* <tbody category={categories}>
-              {category.map((cat, index) => (
-                <tr cat={cat} index={index} key={cat._id}>
-                  {cat.availability === "public" && (
-                    <>
-                      <th>
-                        <label>
-                          <input type="checkbox" className="checkbox" />
-                        </label>
-                      </th>
-                      <td>
-                        <div className="flex items-center gap-3">
-                          <div className="avatar">
-                            <div className="mask rounded-xl  h-12 w-12 sm:w-20 sm:h-20">
-                              <img
-                                src={cat?.photo}
-                                alt="Avatar Tailwind CSS Component"
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            <div className="font-bold sm:text-xl ">
-                              {cat.title}
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="sm:text-xl ">{cat.category}</td>
 
-                      <th>
-                        <button
-                          onClick={() => navigate(`/browseTips/${cat._id}`)}
-                          className="btn btn-ghost  "
-                        >
-                          <FaEye size={16} />
-                        </button>
-                      </th>
-                    </>
-                  )}
-                </tr>
-              ))}
-            </tbody> */}
             <tbody difficulty={difficulty}>
               {difficulty.map((diff, index) => (
                 <tr diff={diff} index={index} key={diff._id}>
@@ -172,9 +125,9 @@ const BrowseTips = () => {
                       <th>
                         <button
                           onClick={() => navigate(`/browseTips/${diff._id}`)}
-                          className="btn btn-ghost  "
+                          className="btn  bg-green-800 rounded-full  "
                         >
-                          <FaEye size={16} />
+                          <FaEye size={16} color="white" />
                         </button>
                       </th>
                     </>

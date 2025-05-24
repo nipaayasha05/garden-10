@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { NavLink, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
@@ -8,9 +8,9 @@ import toast from "react-hot-toast";
 const SignIn = () => {
   const { signInUser, googleSignIn, provider } = use(AuthContext);
   const location = useLocation();
-  console.log(location);
-  const from = location?.state?.from;
-  console.log(from);
+
+  const from = location.state?.from?.pathname || "/";
+
   const navigate = useNavigate();
 
   const handleSignIn = (e) => {
@@ -18,13 +18,13 @@ const SignIn = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
 
     // signInUser
     signInUser(email, password)
       .then((userCredential) => {
         // console.log(userCredential.user);
-        navigate(from ? from : "/");
+        navigate(from);
         toast.success("User LogIn Successfully");
       })
       .catch((error) => {
@@ -41,6 +41,10 @@ const SignIn = () => {
       })
       .catch((error) => {});
   };
+
+  useEffect(() => {
+    document.title = "GreenSpire || LogIn";
+  }, []);
 
   return (
     <div className="card bg-base-100 m-5  border  mx-auto mt-10 max-w-sm shrink-0 shadow-2xl">

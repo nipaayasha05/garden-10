@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLoaderData } from "react-router";
 import Gardeners from "./Gardeners";
 import { Bounce } from "react-awesome-reveal";
 
 const ExploreGardener = () => {
   const gardener = useLoaderData();
-  console.log(gardener);
+
+  useEffect(() => {
+    document.title = "GreenSpire || Explore Gardeners";
+  }, []);
   return (
     <div className="container mx-auto  py-5">
       <Bounce

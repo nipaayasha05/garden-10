@@ -26,7 +26,6 @@ const MyTips = () => {
   }, [user]);
 
   const handleDelete = (_id) => {
-    console.log(_id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -36,7 +35,7 @@ const MyTips = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
-      console.log(result.isConfirmed);
+      // console.log(result.isConfirmed);
       if (result.isConfirmed) {
         fetch(
           `https://assignment-10-server-pink-beta.vercel.app/usersTips/${_id}`,
@@ -60,6 +59,10 @@ const MyTips = () => {
       }
     });
   };
+
+  useEffect(() => {
+    document.title = "GreenSpire || MyTips";
+  }, []);
   return (
     <div className="container mx-auto">
       <h3 className="text-3xl font-bold text-green-900 text-center py-10">

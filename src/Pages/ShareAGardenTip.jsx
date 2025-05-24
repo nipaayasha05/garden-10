@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect } from "react";
 import { getAuth } from "firebase/auth";
 import { AuthContext } from "../context/AuthContext";
 import Swal from "sweetalert2";
@@ -10,7 +10,7 @@ const ShareAGardenTip = () => {
     const form = e.target;
     const formData = new FormData(form);
     const shareTip = Object.fromEntries(formData.entries());
-    console.log(shareTip);
+    // console.log(shareTip);
     // const name = e.target.name.value;
     // const email = e.target.email.value;
     const auth = getAuth();
@@ -46,6 +46,10 @@ const ShareAGardenTip = () => {
         }
       });
   };
+
+  useEffect(() => {
+    document.title = "GreenSPire || Share a Garden Tip";
+  }, []);
 
   return (
     <div className="container lg:w-8/12  mx-auto py-10">

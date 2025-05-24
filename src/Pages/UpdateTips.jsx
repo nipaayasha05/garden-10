@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
@@ -22,7 +22,6 @@ const UpdateTips = () => {
     const form = e.target;
     const formData = new FormData(form);
     const update = Object.fromEntries(formData.entries());
-    console.log(update);
 
     fetch(
       `https://assignment-10-server-pink-beta.vercel.app/usersTips/${_id}`,
@@ -36,7 +35,6 @@ const UpdateTips = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount) {
           Swal.fire({
             position: "top-end",
@@ -48,6 +46,10 @@ const UpdateTips = () => {
         }
       });
   };
+
+  useEffect(() => {
+    document.title = "GreenSpire || Update Tip ";
+  }, []);
 
   return (
     <div className="container lg:w-8/12  mx-auto py-10">

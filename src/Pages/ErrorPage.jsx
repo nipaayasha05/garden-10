@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import error from "../assets/green-error-page.png";
 import { Link } from "react-router";
 
 const ErrorPage = () => {
+  useEffect(() => {
+    document.title = "GreenSpire || 404";
+  }, []);
   return (
     <div className="flex m-5   py-20 flex-col justify-center items-center">
       <img src={error} alt="" />

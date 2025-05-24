@@ -21,8 +21,6 @@ const TipsDetails = () => {
     email,
     name,
   } = tipDetails;
-  console.log(tipDetails);
-  console.log(id);
 
   useEffect(() => {
     fetch(`https://assignment-10-server-pink-beta.vercel.app/usersTips/${id}`)
@@ -30,11 +28,9 @@ const TipsDetails = () => {
       .then((data) => setCount(data.likes || 0));
   }, [id]);
 
-  console.log(tips);
   const handleClick = () => {
     const update = count + 1;
     setCount(count + 1);
-    console.log("count");
 
     fetch(`https://assignment-10-server-pink-beta.vercel.app/usersTips/${id}`, {
       method: "PUT",
@@ -45,12 +41,15 @@ const TipsDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data?.modifiedCount) {
           setCount(count + 1);
         }
       });
   };
+
+  useEffect(() => {
+    document.title = "GreenSpire || Tip Details";
+  }, []);
   return (
     <div className="container mx-auto py-10">
       <div className="m-5 flex bg-lime-50 flex-col lg:flex-row justify-center items-center shadow-gray-600  shadow-md p-5 rounded-xl space-y-5 lg:gap-10">
@@ -104,6 +103,18 @@ const TipsDetails = () => {
             </span>
             <span className="text-gray-600">{difficulty}</span>
           </p>
+          <div className="pt-5">
+            <p className="  ">
+              <span className="  font-semibold text-green-800">Email:</span>
+              <span className="text-gray-600">{email}</span>
+            </p>
+            <p className="  ">
+              <span className="  font-semibold text-green-800">
+                Availability:
+              </span>
+              <span className="text-gray-600">{availability}</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>

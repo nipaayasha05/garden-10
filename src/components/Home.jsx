@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { useLoaderData } from "react-router";
 import Active6 from "./Active6";
 import Slider from "./Slider";
@@ -14,6 +14,10 @@ const Home = () => {
   const topTipsPromise = fetch(
     "https://assignment-10-server-pink-beta.vercel.app/usersTips6"
   ).then((res) => res.json());
+
+  useEffect(() => {
+    document.title = "GreenSpire || Home";
+  }, []);
 
   return (
     <div className=" ">
