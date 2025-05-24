@@ -1,13 +1,16 @@
 import React, { use } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { FcGoogle } from "react-icons/fc";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { auth } from "../firebase/firebase.init";
 import toast from "react-hot-toast";
 
 const SignUp = () => {
   const { createUser, googleSignIn, provider, updateUser, setUser } =
     use(AuthContext);
+
+  const from = location?.state?.from;
+  const navigate = useNavigate();
   //   console.log(createUser);
 
   const handleSignUp = (e) => {
@@ -52,6 +55,7 @@ const SignUp = () => {
           .catch((error) => {
             setUser(user);
           });
+        navigate(from ? from : "/");
         toast.success("User register successfully");
       })
       .catch((error) => {
@@ -66,6 +70,7 @@ const SignUp = () => {
         updateUser({ displayName: name, photoURL: photo });
 
         setUser({ ...currentUser, displayName: name, photoURL: photo });
+        navigate(from ? from : "/");
         toast.success("User LogIn Successfully");
       })
       .catch((error) => {});
@@ -73,7 +78,7 @@ const SignUp = () => {
   return (
     <div className="card bg-base-100 m-5  border  mx-auto mt-10 max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
-        <h1 className="text-5xl font-bold">Register now!</h1>
+        <h1 className="text-5xl text-green-800 font-bold">Register now!</h1>
         <form onSubmit={handleSignUp} className="fieldset">
           <label className="label">Name</label>
           <input
@@ -118,7 +123,9 @@ const SignUp = () => {
           >
             <FcGoogle size={24} /> Login with Google
           </button>
-          <button className="btn btn-neutral mt-4">Register</button>
+          <button className="btn btn-neutral mt-4 bg-green-800 text-white rounded-full mr-4">
+            Register
+          </button>
           <p className="font-semibold text-center pt-5">
             Already Have An Account ?
             <NavLink className="text-secondary" to="/signin">

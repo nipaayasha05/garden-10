@@ -5,7 +5,7 @@ const TopTip = ({ top }) => {
   return (
     <div className="card bg-base-100 m-3   border-lime-700 shadow-md shadow-lime-700">
       <figure>
-        <img src={top.photo} />
+        <img className="w-full h-[350px]" src={top.photo} />
       </figure>
       <div className="card-body bg-amber-50 rounded-2xl">
         <div

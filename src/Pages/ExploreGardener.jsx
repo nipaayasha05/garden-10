@@ -7,7 +7,7 @@ const ExploreGardener = () => {
   const gardener = useLoaderData();
   console.log(gardener);
   return (
-    <div className="container mx-auto  py-10">
+    <div className="container mx-auto  py-5">
       <Bounce
         delay={500} // Wait 200ms before starting
         duration={1000} // Animation lasts 1 second

@@ -16,6 +16,7 @@ import toast from "react-hot-toast";
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   // console.log(user);
   const [difficulty, setDifficulty] = useState([]);
 
@@ -55,12 +56,14 @@ const AuthProvider = ({ children }) => {
     updateUser,
     difficulty,
     setDifficulty,
+    loading,
   };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       // console.log(user);
       setUser(user);
+      setLoading(false);
     });
     return () => {
       unsubscribe();

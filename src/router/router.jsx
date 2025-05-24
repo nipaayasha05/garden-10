@@ -11,6 +11,8 @@ import MyTips from "../Pages/MyTips";
 import Loader from "../Pages/Loader";
 import TipsDetails from "../Pages/TipsDetails";
 import UpdateTips from "../Pages/UpdateTips";
+import ErrorPage from "../Pages/ErrorPage";
+import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -49,18 +51,31 @@ const router = createBrowserRouter([
       },
       {
         path: "/shareAGardenTip",
-        Component: ShareAGardenTip,
+        element: (
+          <PrivateRoute>
+            <ShareAGardenTip></ShareAGardenTip>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myTips",
 
-        Component: MyTips,
+        element: (
+          <PrivateRoute>
+            <MyTips></MyTips>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/browseTips/:id",
         loader: () =>
           fetch(`https://assignment-10-server-pink-beta.vercel.app/usersTips`),
-        Component: TipsDetails,
+        hydrateFallbackElement: <Loader />,
+        element: (
+          <PrivateRoute>
+            <TipsDetails></TipsDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/updateTips/:id",
@@ -68,9 +83,18 @@ const router = createBrowserRouter([
           fetch(
             `https://assignment-10-server-pink-beta.vercel.app/usersTips/${params.id}`
           ),
-        Component: UpdateTips,
+        hydrateFallbackElement: <Loader />,
+        element: (
+          <PrivateRoute>
+            <UpdateTips></UpdateTips>
+          </PrivateRoute>
+        ),
       },
     ],
+  },
+  {
+    path: "/*",
+    Component: ErrorPage,
   },
 ]);
 

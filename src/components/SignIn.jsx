@@ -1,12 +1,17 @@
 import React, { use } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { NavLink } from "react-router";
+import { NavLink, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 import { auth } from "../firebase/firebase.init";
 import toast from "react-hot-toast";
 
 const SignIn = () => {
   const { signInUser, googleSignIn, provider } = use(AuthContext);
+  const location = useLocation();
+  console.log(location);
+  const from = location?.state?.from;
+  console.log(from);
+  const navigate = useNavigate();
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -19,6 +24,7 @@ const SignIn = () => {
     signInUser(email, password)
       .then((userCredential) => {
         // console.log(userCredential.user);
+        navigate(from ? from : "/");
         toast.success("User LogIn Successfully");
       })
       .catch((error) => {
@@ -30,6 +36,7 @@ const SignIn = () => {
     googleSignIn(auth, provider)
       .then((result) => {
         const currentUser = result.user;
+        navigate(from ? from : "/");
         toast.success("User LogIn Successfully");
       })
       .catch((error) => {});
@@ -38,7 +45,7 @@ const SignIn = () => {
   return (
     <div className="card bg-base-100 m-5  border  mx-auto mt-10 max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
-        <h1 className="text-5xl font-bold">LogIn now!</h1>
+        <h1 className="text-5xl text-green-800 font-bold">LogIn now!</h1>
         <form onSubmit={handleSignIn} className="fieldset">
           <label className="label">Email</label>
           <input
@@ -66,10 +73,12 @@ const SignIn = () => {
           >
             <FcGoogle size={24} /> Login with Google
           </button>
-          <button className="btn btn-neutral mt-4">LogIn</button>
+          <button className="btn  bg-green-800 text-white rounded-full mr-4 mt-4">
+            LogIn
+          </button>
           <p className="font-semibold text-center pt-5">
             Don’t Have An Account ?
-            <NavLink className="text-secondary" to="/signup">
+            <NavLink className="text-green-800" to="/signup">
               Register
             </NavLink>
           </p>

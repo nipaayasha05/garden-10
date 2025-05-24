@@ -4,7 +4,7 @@ import TopTip from "./TopTip";
 
 const TopTips = ({ topTipsPromise }) => {
   const topTips = use(topTipsPromise);
-  console.log(topTips);
+  // console.log(topTips);
   return (
     <div>
       <Bounce

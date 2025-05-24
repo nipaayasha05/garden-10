@@ -179,7 +179,7 @@ const Navbar = () => {
           />
           <div className="relative group">
             {user && (
-              <div className="dropdown dropdown-end">
+              <div className="dropdown  dropdown-end">
                 <div tabIndex={0} role="button" className=" m-1">
                   <img
                     className={`w-13 rounded-full  `}
@@ -190,15 +190,17 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content menu bg-base-100 rounded-box z-1 w-25 p-2 shadow-sm"
+                  className="dropdown-content menu bg-base-100  rounded-box z-1 w-25 p-2 shadow-sm"
                 >
                   <li>
-                    <button
-                      onClick={handleLogOut}
-                      className="btn rounded-full bg-green-800 text-white border-none"
-                    >
-                      LogOut
-                    </button>
+                    <Link to="/signin">
+                      <button
+                        onClick={handleLogOut}
+                        className="btn rounded-full bg-green-800 text-white border-none"
+                      >
+                        LogOut
+                      </button>
+                    </Link>
                   </li>
                 </ul>
               </div>
