@@ -1,12 +1,19 @@
-# React + Vite
+Project Name : GreenSpire
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Site URL : https://dancing-unicorn-47edd5.netlify.app/
 
-Currently, two official plugins are available:
+Feature of this project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Login and LogOut functionality
 
-## Expanding the ESLint configuration
+- Users can share their own blog about gardening
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Users can see active gardeners of the garden
+
+- users can see the top top blog post about gardening
+
+- Users can delete and update their own blog posts
+
+Description:
+
+GreenSpire is a gardening based website.Here users can share their blog posts about gardening.They can easily delete and update their own blog posts.Users can view the active gardeners of the garden.They can see the top blog post about gardening.they can also explore the top plant of the month.
