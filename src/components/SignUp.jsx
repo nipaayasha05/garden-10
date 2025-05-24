@@ -1,4 +1,4 @@
-import React, { use, useEffect } from "react";
+import React, { use, useContext, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { FcGoogle } from "react-icons/fc";
 import { NavLink, useNavigate } from "react-router";
@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 const SignUp = () => {
   const { createUser, googleSignIn, provider, updateUser, setUser } =
-    use(AuthContext);
+    useContext(AuthContext);
 
   const from = location?.state?.from;
   const navigate = useNavigate();

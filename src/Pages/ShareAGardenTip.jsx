@@ -90,6 +90,7 @@ const ShareAGardenTip = () => {
               name="title"
               className="input w-full"
               placeholder="Title"
+              required
             />
           </fieldset>
           <fieldset className="fieldset bg-lime-100 border-base-300 rounded-box border p-4">
@@ -99,6 +100,7 @@ const ShareAGardenTip = () => {
               name="plant_type"
               className="input w-full"
               placeholder="Plant Type/Topic"
+              required
             />
           </fieldset>
 
@@ -109,6 +111,7 @@ const ShareAGardenTip = () => {
               name="description"
               className="input w-full"
               placeholder="Description"
+              required
             />
           </fieldset>
           <fieldset className="fieldset bg-lime-100 border-base-300 rounded-box border p-4">
@@ -118,6 +121,7 @@ const ShareAGardenTip = () => {
               name="photo"
               className="input w-full"
               placeholder="Photo URL"
+              required
             />
           </fieldset>
         </div>
