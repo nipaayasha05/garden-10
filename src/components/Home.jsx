@@ -5,6 +5,7 @@ import Slider from "./Slider";
 import PopularPlants from "./PopularPlants";
 import { Bounce, Flip, Roll, Slide, Zoom } from "react-awesome-reveal";
 import TopTips from "./TopTips";
+import LowMaintain from "./LowMaintain";
 
 const Home = () => {
   const active = useLoaderData();
@@ -46,6 +47,9 @@ const Home = () => {
       </div>
       <div className="bg-amber-50">
         <PopularPlants></PopularPlants>
+      </div>
+      <div>
+        <LowMaintain></LowMaintain>
       </div>
     </div>
   );
