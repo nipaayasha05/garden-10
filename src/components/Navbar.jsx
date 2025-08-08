@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, NavLink, useLocation, useNavigate } from "react-router";
 import logo from "../assets/simple-plant-logo.png";
+import { Navigate } from "react-router";
 
 const Navbar = () => {
   const { user, handleLogOut } = use(AuthContext);
@@ -26,6 +27,11 @@ const Navbar = () => {
     const localTheme = localStorage.getItem("theme");
     document.querySelector("html").setAttribute("data-theme", localTheme);
   }, [theme]);
+
+  const handleLogOutNavigate = () => {
+    handleLogOut();
+    return <Navigate to="/signin" state={pathname} />;
+  };
 
   return (
     <div className="bg-lime-200 border-b-2 border-b-green-950">
@@ -256,14 +262,12 @@ const Navbar = () => {
                   className="dropdown-content menu bg-base-100  rounded-box z-1 w-25 p-2 shadow-sm"
                 >
                   <li>
-                    <Link to="/signin">
-                      <button
-                        onClick={handleLogOut}
-                        className="btn rounded-full bg-green-800 text-white border-none"
-                      >
-                        LogOut
-                      </button>
-                    </Link>
+                    <button
+                      onClick={handleLogOutNavigate}
+                      className="btn rounded-full bg-green-800 text-white border-none"
+                    >
+                      LogOut
+                    </button>
                   </li>
                 </ul>
               </div>

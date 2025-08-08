@@ -9,7 +9,8 @@ const SignIn = () => {
   const { signInUser, googleSignIn, provider } = use(AuthContext);
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state || "/";
+  console.log(location.state);
 
   const navigate = useNavigate();
 
