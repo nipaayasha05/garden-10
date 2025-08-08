@@ -6,7 +6,7 @@
 
 ### Screenshots
 
-![GreenSpire Screenshot](https://i.ibb.co.com/DfVmwVbF/Screenshot-2025-08-08-121332.png)
+![GreenSpire Screenshot](https://i.ibb.co/DfVmwVbF/Screenshot-2025-08-08-121332.png)
 
 ### Technologies Used
 
